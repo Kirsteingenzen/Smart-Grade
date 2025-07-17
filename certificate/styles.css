@@ -1,0 +1,75 @@
+body {
+  font-family: 'Georgia', serif;
+  background: #f9f9f9;
+  padding: 30px;
+}
+
+.certificate {
+  width: 85%;
+  margin: auto;
+  padding: 30px;
+  background: white;
+  border: 12px solid #006400;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+.logo {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.header h3, .header h4, .header h2 {
+  margin: 3px;
+}
+
+.title {
+  color: #006400;
+  font-size: 2em;
+  margin: 20px 0 10px;
+}
+
+.editable-input {
+  font-size: 1.5em;
+  font-weight: bold;
+  border: none;
+  border-bottom: 2px solid #006400;
+  text-align: center;
+  margin: 10px 0;
+  background: transparent;
+  width: 60%;
+}
+
+.editable-input.small {
+  font-size: 1em;
+  width: 40%;
+}
+
+.description, .footer {
+  margin: 20px 0;
+  font-size: 1em;
+}
+
+.signatures {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+
+.signatures div {
+  text-align: center;
+  width: 40%;
+}
+
+hr {
+  border: none;
+  border-top: 2px solid #000;
+  margin-bottom: 5px;
+}
+
+.editable-input.honor {
+  font-size: 1em;
+  font-weight: bold;
+  color: #006400;
+  width: 200px;
+}
