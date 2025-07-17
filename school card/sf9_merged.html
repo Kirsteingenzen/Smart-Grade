@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SF9-SHS Report Card</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get student data from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const studentData = urlParams.get('student');
+      
+      if (studentData) {
+        try {
+          const student = JSON.parse(decodeURIComponent(studentData));
+          
+          // Populate student information
+          document.querySelector('.student-name').textContent = student.name;
+          document.querySelector('.student-id').textContent = student.id;
+          
+          // Function to populate grades for a semester
+          function populateSemesterGrades(semester, grades) {
+            const table = document.querySelector(`table:${semester === '1st' ? 'first-of-type' : 'last-of-type'}`);
+            if (!table) return;
+
+            // Process Core Subjects
+            let currentRow = table.querySelector('tbody tr:nth-child(2)'); // First subject row
+            grades['Core Subjects'].forEach(grade => {
+              if (currentRow) {
+                currentRow.querySelector('td:first-child').textContent = grade.subject_name;
+                const gradeCell = currentRow.querySelector('td:nth-child(2)'); // First quarter grade
+                if (gradeCell) {
+                  gradeCell.textContent = grade.grade;
+                }
+                currentRow = currentRow.nextElementSibling;
+              }
+            });
+
+            // Process Applied and Specialized Subjects
+            while (currentRow && !currentRow.querySelector('td:first-child').textContent.includes('Applied')) {
+              currentRow = currentRow.nextElementSibling;
+            }
+            if (currentRow) currentRow = currentRow.nextElementSibling;
+
+            grades['Applied and Specialized Subjects'].forEach(grade => {
+              if (currentRow) {
+                currentRow.querySelector('td:first-child').textContent = grade.subject_name;
+                const gradeCell = currentRow.querySelector('td:nth-child(2)'); // First quarter grade
+                if (gradeCell) {
+                  gradeCell.textContent = grade.grade;
+                }
+                currentRow = currentRow.nextElementSibling;
+              }
+            });
+          }
+
+          // Populate grades for both semesters
+          populateSemesterGrades('1st', student.grades['1st']);
+          populateSemesterGrades('2nd', student.grades['2nd']);
+          
+          // Calculate and display general averages
+          function calculateAverage(grades) {
+            let total = 0;
+            let count = 0;
+            
+            grades['Core Subjects'].forEach(grade => {
+              if (grade.grade !== '') {
+                total += parseFloat(grade.grade);
+                count++;
+              }
+            });
+            
+            grades['Applied and Specialized Subjects'].forEach(grade => {
+              if (grade.grade !== '') {
+                total += parseFloat(grade.grade);
+                count++;
+              }
+            });
+            
+            return count > 0 ? (total / count).toFixed(2) : '';
+          }
+          
+          const firstSemesterAverage = calculateAverage(student.grades['1st']);
+          const secondSemesterAverage = calculateAverage(student.grades['2nd']);
+          
+          document.querySelector('table:first-of-type tbody tr:last-child td:last-child').textContent = firstSemesterAverage;
+          document.querySelector('table:last-of-type tbody tr:last-child td:last-child').textContent = secondSemesterAverage;
+          
+        } catch (error) {
+          console.error('Error parsing student data:', error);
+        }
+      }
+    });
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap');
+    body {
+      font-family: 'Times New Roman', serif;
+    }
+    .border-1 {
+      border-width: 1px;
+    }
+    .border-2 {
+      border-width: 2px;
+    }
+    .table-fixed-layout {
+      table-layout: fixed;
+    }
+    @media print {
+      @page {
+        size: A4 landscape;
+      }
+      .page-break {
+        page-break-after: always;
+      }
+    }
+  </style>
+</head>
+<body class="p-6">
+  <!-- Front Page -->
+  <div class="max-w-[1100px] mx-auto text-[12px] text-black grid grid-cols-2 gap-4">
+    <!-- LEFT COLUMN (REPORT ON ATTENDANCE) -->
+    <div class="pr-2 border-r border-gray-400">
+      <h3 class="font-bold text-center mb-2">REPORT ON ATTENDANCE</h3>
+      <table class="w-full border border-black border-collapse text-[10px] mb-4">
+        <thead>
+          <tr>
+            <th class="border border-black w-[100px]">Month</th>
+            <th class="border border-black">Jun</th><th class="border border-black">Jul</th>
+            <th class="border border-black">Aug</th><th class="border border-black">Sept</th>
+            <th class="border border-black">Oct</th><th class="border border-black">Nov</th>
+            <th class="border border-black">Dec</th><th class="border border-black">Jan</th>
+            <th class="border border-black">Feb</th><th class="border border-black">Mar</th>
+            <th class="border border-black">Apr</th>
+            <th class="border border-black">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="border border-black text-[9px]">No. of School Days</td>
+            <td class="border border-black" colspan="12"></td>
+            <td class="border border-black"></td>
+          </tr>
+          <tr>
+            <td class="border border-black text-[9px]">No. of Days Present</td>
+            <td class="border border-black" colspan="12"></td>
+            <td class="border border-black"></td>
+          </tr>
+          <tr>
+            <td class="border border-black text-[9px]">No. of Days Absent</td>
+            <td class="border border-black" colspan="12"></td>
+            <td class="border border-black"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Parent/Guardian Signature -->
+      <div class="mb-4">
+        <h4 class="text-[11px] font-bold">PARENT / GUARDIAN'S SIGNATURE</h4>
+        <p>1st Quarter __________________________</p>
+        <p>2nd Quarter __________________________</p>
+        <p>3rd Quarter __________________________</p>
+        <p>4th Quarter __________________________</p>
+      </div>
+
+      <!-- Certificate of Transfer -->
+      <div class="mb-4">
+        <h4 class="text-center font-bold text-[11px]">Certificate of Transfer</h4>
+        <p>Admitted to Grade: _____ Section: _______________________</p>
+        <p>Eligibility for Admission to Grade: _______________________</p>
+        <p>Approved:</p>
+        <div class="flex justify-between mt-6 mb-2 text-[11px] italic">
+          <span>School Head</span>
+          <span>Adviser</span>
+        </div>
+      </div>
+
+      <!-- Cancellation of Eligibility -->
+      <div>
+        <h4 class="text-center font-bold text-[11px]">Cancellation of Eligibility to Transfer</h4>
+        <p>Admitted in: __________________________________________</p>
+        <p class="mb-4">Date: ___________________</p>
+        <div class="text text-right italic font-normal">School Head</div>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN (STUDENT INFO) -->
+    <div class="pl-2">
+      <!-- LRN and Seal -->
+      <div class="flex justify-between items-start mb-1">
+        <div class="italic text-[10px]">SF9-SHS</div>
+        <div class="flex items-center space-x-1">
+          <span class="font-bold">LRN</span>
+          <div class="grid grid-cols-12 border border-black w-[180px] h-5 text-center text-[10px]">
+            <div class="border-r border-black">1</div><div class="border-r border-black">2</div><div class="border-r border-black">3</div>
+            <div class="border-r border-black">4</div><div class="border-r border-black">5</div><div class="border-r border-black">6</div>
+            <div class="border-r border-black">7</div><div class="border-r border-black">8</div><div class="border-r border-black">9</div>
+            <div class="border-r border-black">0</div><div class="border-r border-black">0</div><div>0</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DepEd Header -->
+      <div class="flex items-center space-x-2 mb-2">
+        <img src="https://storage.googleapis.com/a1aa/image/15b09b38-bae9-453f-e479-9a1c303e26ab.jpg" class="w-[30px] h-[30px]" />
+        <div class="text-center flex-1">
+          <div class="text-[10px]">Republic of the Philippines</div>
+          <div class="font-bold text-[12px]">DEPARTMENT OF EDUCATION</div>
+          <div class="italic text-[10px] -mt-1">I</div>
+          <div class="italic text-[10px] -mt-1">Region</div>
+          <div class="font-bold text-[12px] mt-1">DIVISION OF XXXXXXX</div>
+          <div class="italic text-[10px] -mt-1">Division</div>
+          <div class="font-bold text-[12px] mt-1">DEPED NATIONAL HIGH SCHOOL</div>
+          <div class="italic text-[10px] -mt-1">School</div>
+        </div>
+        <div class="w-[30px]"></div>
+      </div>
+
+      <!-- Student Information -->
+      <div class="mb-2">
+        <div class="flex items-center space-x-2">
+          <span>Name :</span>
+          <div class="border-b border-black flex-1 h-5 student-name"></div>
+        </div>
+        <div class="flex justify-between text-[9px] italic mt-1">
+          <span>Last Name</span>
+          <span>First Name</span>
+          <span>Middle Name</span>
+        </div>
+      </div>
+
+      <div class="flex space-x-6 text-[12px] mb-1">
+        <div class="flex items-center space-x-1">
+          <span class="font-bold">Age :</span><span class="font-bold underline">16</span>
+        </div>
+        <div class="flex items-center space-x-1">
+          <span>Sex :</span><span class="font-bold underline">Male</span>
+        </div>
+      </div>
+
+      <div class="flex space-x-6 text-[12px] mb-1">
+        <div class="flex items-center space-x-1">
+          <span class="font-bold">Grade :</span><span class="font-bold underline">11</span>
+        </div>
+        <div class="flex items-center space-x-1">
+          <span>Section :</span><span class="font-bold underline">A</span>
+        </div>
+      </div>
+
+      <div class="mb-1">
+        <span class="font-bold">Curriculum:</span>
+        <span class="font-bold underline">K to 12 Basic Education Curriculum</span>
+      </div>
+
+      <div class="mb-1">
+        <span class="font-bold">School Year:</span>
+        <span class="font-bold underline">2019-2020</span>
+      </div>
+
+      <div class="mb-3">
+        <span class="font-bold">Track/ Strand:</span>
+        <span class="italic underline text-[10px]">Academic/ Science, Technology, Engineering, Mathematics (STEM)</span>
+      </div>
+
+      <div class="mb-6 text-[11px] italic leading-snug">
+        <p>Dear Parent/Guardian,</p>
+        <p class="mt-2">This report card shows the ability and progress your child has made in the different learning areas as well as his/her core values.</p>
+        <p class="mt-2">The school welcomes you should you desire to know more about your child's progress.</p>
+      </div>
+
+      <div class="flex justify-end mb-6 text-[12px] font-bold">
+        <div class="text-right">
+          <div>RICHARD R. RAQUEÑO</div>
+          <div class="italic font-normal">Adviser</div>
+        </div>
+      </div>
+
+      <div class="italic text-left flex-1">
+        <div>__________________________</div>
+        <div class="italic font-normal">Principal IV</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Break -->
+  <div class="page-break"></div>
+
+  <!-- Back Page -->
+  <div class="max-w-[900px] mx-auto text-[10px] leading-[1.1] text-black select-none">
+    <div class="flex flex-col md:flex-row md:space-x-8">
+      <!-- Left side: Learner's Progress Report Card -->
+      <div class="flex-1">
+        <div class="text-center font-bold text-[11px] mb-1">
+          LEARNER'S PROGRESS REPORT CARD
+        </div>
+        <div class="text-[9px] font-semibold mb-1">First Semester</div>
+        <table class="w-full border border-black border-collapse table-fixed-layout text-[9px]">
+          <thead>
+            <tr>
+              <th class="border border-black px-1 py-[2px] text-left" style="width: 60%;">Subjects</th>
+              <th class="border border-black px-1 py-[2px] text-center" colspan="2" style="width: 25%;">Quarter</th>
+              <th class="border border-black px-1 py-[2px] text-center" style="width: 15%;">Semester<br />Final Grade</th>
+            </tr>
+            <tr>
+              <th class="border border-black px-1 py-[2px]"></th>
+              <th class="border border-black px-1 py-[2px] text-center" style="width: 12.5%;">1</th>
+              <th class="border border-black px-1 py-[2px] text-center" style="width: 12.5%;">2</th>
+              <th class="border border-black px-1 py-[2px]"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-black px-1 py-[2px] font-bold bg-gray-200" colspan="4">Core Subjects</td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">Mathematics</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">English</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">Science</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">History</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">Physical Education</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px] font-bold bg-gray-200" colspan="4">Applied and Specialized Subjects</td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">Empowerment Technologies</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">Pre-Calculus</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">General Chemistry 1</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px] font-semibold text-[8px] text-right italic" colspan="4">General Average for the Semester</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="mt-4 text-[9px] font-semibold mb-1">Second Semester</div>
+        <table class="w-full border border-black border-collapse table-fixed-layout text-[9px]">
+          <thead>
+            <tr>
+              <th class="border border-black px-1 py-[2px] text-left" style="width: 60%;">Subjects</th>
+              <th class="border border-black px-1 py-[2px] text-center" colspan="2" style="width: 25%;">Quarter</th>
+              <th class="border border-black px-1 py-[2px] text-center" style="width: 15%;">Semester<br />Final Grade</th>
+            </tr>
+            <tr>
+              <th class="border border-black px-1 py-[2px]"></th>
+              <th class="border border-black px-1 py-[2px] text-center" style="width: 12.5%;">3</th>
+              <th class="border border-black px-1 py-[2px] text-center" style="width: 12.5%;">4</th>
+              <th class="border border-black px-1 py-[2px]"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-black px-1 py-[2px] font-bold bg-gray-200" colspan="4">Core Subjects</td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">Mathematics</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">English</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">Science</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">History</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">Physical Education</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px] font-bold bg-gray-200" colspan="4">Applied and Specialized Subjects</td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">Empowerment Technologies</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">Pre-Calculus</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px]">General Chemistry 1</td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+              <td class="border border-black px-1 py-[2px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black px-1 py-[2px] font-semibold text-[8px] text-right italic" colspan="4">General Average for the Semester</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="mt-1 italic text-[7px] text-right">Iniwasto ni:</div>
+      </div>
+
+      <!-- Right side: Report on Learner's Observed Values -->
+      <div class="flex-1 mt-6 md:mt-0">
+        <div class="text-center font-bold text-[11px] mb-1">
+          REPORT ON LEARNER'S OBSERVED VALUES
+        </div>
+        <table class="w-full border-2 border-black border-collapse table-fixed-layout text-[9px]">
+          <thead>
+            <tr>
+              <th class="border border-black bg-gray-300 px-1 py-[3px]" style="width: 25%;">Core Values</th>
+              <th class="border border-black bg-gray-300 px-1 py-[3px]" style="width: 40%;">Behavior Statements</th>
+              <th class="border border-black bg-gray-300 px-1 py-[3px]" colspan="4" style="width: 35%;">
+                <div class="flex justify-center items-center space-x-1">
+                  <span>Quarter</span>
+                  <span class="grid grid-cols-4 gap-[1px] w-[70px] text-center font-bold">
+                    <span>1</span><span>2</span><span>3</span><span>4</span>
+                  </span>
+                </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="border border-black font-bold px-1 py-[3px] align-top">1. Maka-Diyos</td>
+              <td class="border border-black px-1 py-[3px] text-[8px] align-top">
+                Expresses one's spiritual beliefs while respecting the spiritual beliefs of others
+              </td>
+              <td class="border border-black px-1 py-[3px] text-center font-bold align-top">SO</td>
+              <td class="border border-black px-1 py-[3px]"></td>
+              <td class="border border-black px-1 py-[3px]"></td>
+              <td class="border border-black px-1 py-[3px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black font-bold px-1 py-[3px] align-top">2. Makatao</td>
+              <td class="border border-black px-1 py-[3px] text-[8px] align-top">
+                Shows adherence to ethical principles by upholding truth in all undertakings
+              </td>
+              <td class="border border-black px-1 py-[3px] text-center font-bold align-top">SO</td>
+              <td class="border border-black px-1 py-[3px]"></td>
+              <td class="border border-black px-1 py-[3px]"></td>
+              <td class="border border-black px-1 py-[3px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black font-bold px-1 py-[3px] align-top"></td>
+              <td class="border border-black px-1 py-[3px] text-[8px] align-top">
+                Is sensitive to individual, social and cultural differences; resists stereotyping people
+              </td>
+              <td class="border border-black px-1 py-[3px] text-center font-bold align-top">SO</td>
+              <td class="border border-black px-1 py-[3px]"></td>
+              <td class="border border-black px-1 py-[3px]"></td>
+              <td class="border border-black px-1 py-[3px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black font-bold px-1 py-[3px] align-top"></td>
+              <td class="border border-black px-1 py-[3px] text-[8px] align-top">
+                Demonstrates contributions toward solidarity
+              </td>
+              <td class="border border-black px-1 py-[3px] text-center font-bold align-top">SO</td>
+              <td class="border border-black px-1 py-[3px]"></td>
+              <td class="border border-black px-1 py-[3px]"></td>
+              <td class="border border-black px-1 py-[3px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black font-bold px-1 py-[3px] align-top">3. Makakalikasan</td>
+              <td class="border border-black px-1 py-[3px] text-[8px] align-top">
+                Cares for the environment and utilizes resources wisely, judiciously and economically
+              </td>
+              <td class="border border-black px-1 py-[3px] text-center font-bold align-top">SO</td>
+              <td class="border border-black px-1 py-[3px]"></td>
+              <td class="border border-black px-1 py-[3px]"></td>
+              <td class="border border-black px-1 py-[3px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black font-bold px-1 py-[3px] align-top">4. Makabansa</td>
+              <td class="border border-black px-1 py-[3px] text-[8px] align-top">
+                Demonstrates pride in being a Filipino; exercises the rights and responsibilities of a Filipino citizen
+              </td>
+              <td class="border border-black px-1 py-[3px] text-center font-bold align-top">SO</td>
+              <td class="border border-black px-1 py-[3px]"></td>
+              <td class="border border-black px-1 py-[3px]"></td>
+              <td class="border border-black px-1 py-[3px]"></td>
+            </tr>
+            <tr>
+              <td class="border border-black font-bold px-1 py-[3px] align-top"></td>
+              <td class="border border-black px-1 py-[3px] text-[8px] align-top">
+                Demonstrates appropriate behavior in carrying out activities in the school, community and country
+              </td>
+              <td class="border border-black px-1 py-[3px] text-center font-bold align-top">SO</td>
+              <td class="border border-black px-1 py-[3px]"></td>
+              <td class="border border-black px-1 py-[3px]"></td>
+              <td class="border border-black px-1 py-[3px]"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="mt-3 text-[9px]">
+          <div class="font-bold mb-1">Observed Values</div>
+          <div class="flex space-x-4 mb-1">
+            <div class="flex-1">
+              <div class="font-semibold">Marking</div>
+              <div>AO</div>
+              <div>SO</div>
+              <div>RO</div>
+              <div>NO</div>
+            </div>
+            <div class="flex-1">
+              <div class="font-semibold">Non-numerical Rating</div>
+              <div>Always Observed</div>
+              <div>Sometimes Observed</div>
+              <div>Rarely Observed</div>
+              <div>Not Observed</div>
+            </div>
+          </div>
+
+          <div class="font-bold mb-1">Learner Progress and Achievement</div>
+          <div class="grid grid-cols-[1fr_1fr_1fr] gap-x-4 text-[8.5px]">
+            <div class="font-semibold">Descriptors</div>
+            <div class="font-semibold">Grading Scale</div>
+            <div class="font-semibold">Remarks</div>
+
+            <div>Outstanding</div>
+            <div>90-100</div>
+            <div>Passed</div>
+
+            <div>Very Satisfactory</div>
+            <div>85-89</div>
+            <div>Passed</div>
+
+            <div>Satisfactory</div>
+            <div>80-84</div>
+            <div>Passed</div>
+
+            <div>Fairly Satisfactory</div>
+            <div>75-79</div>
+            <div>Passed</div>
+
+            <div>Did Not Meet Expectation</div>
+            <div>Below 75</div>
+            <div>Failed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html> 

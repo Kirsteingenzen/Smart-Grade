@@ -1,0 +1,1096 @@
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>
+   Senior High School Student Permanent Record
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   /* Styles from sf10P1.html */
+    .text-xxs {
+      font-size: 8px;
+      line-height: 1rem;
+    }
+    .text-xxxs {
+      font-size: 7px;
+      line-height: 1rem;
+    }
+    .border-t-0 {
+      border-top-width: 0 !important;
+    }
+    .border-b-0 {
+      border-bottom-width: 0 !important;
+    }
+    .border-l-0 {
+      border-left-width: 0 !important;
+    }
+    .border-r-0 {
+      border-right-width: 0 !important;
+    }
+
+   /* Styles from sf10P2.html - combined */
+    .border-thin {
+      border-width: 0.5px;
+    }
+    /* P2 text-xxs is 7px, P1 is 8px. Use P1's size. */
+    /* P2 text-xxxs is 6px, P1 is 7px. Use P1's size. */
+    .text-xxs-2 { /* Unique to P2 */
+      font-size: 7.5px;
+      line-height: 1;
+    }
+    .font-condensed { /* Unique to P2 */
+      font-family: Arial Narrow, Arial, sans-serif;
+    }
+
+    /* Ensure page breaks for printing if needed */
+    .page-break {
+        page-break-after: always;
+    }
+  </style>
+ </head>
+ <body class="bg-white font-sans text-[9px] leading-[1rem] text-black select-none">
+  <div class="max-w-[900px] mx-auto p-2">
+   <!-- Content from sf10P1.html -->
+   <!-- Header with logos and title -->
+   <div class="flex justify-between items-center mb-1">
+    <img src="logo.png" alt="Your logo description" width="60" height="60" />
+    <div class="text-center flex-1 px-2">
+     <p class="text-[9px] font-bold leading-[1rem]">
+      REPUBLIC OF THE PHILIPPINES
+     </p>
+     <p class="text-[9px] font-bold leading-[1rem]">
+      DEPARTMENT OF EDUCATION
+     </p>
+     <p class="text-[10px] font-extrabold leading-[1rem] mt-0.5">
+      SENIOR HIGH SCHOOL STUDENT PERMANENT RECORD
+     </p>
+    </div>
+    <div class="flex flex-col items-end space-y-0.5">
+    <img src="download.png" alt="Your logo description" width="60" height="60" />
+     <span class="text-[7px] font-normal">
+      SF16-SHS
+     </span>
+    </div>
+   </div>
+   <!-- Learner's Information -->
+   <div class="text-[7.5px] font-semibold bg-gray-300 text-center border border-black py-[1px]">
+    LEARNER'S INFORMATION
+   </div>
+   <div class="border border-black border-t-0 grid grid-cols-[1.5fr_1fr_1fr] gap-1 text-[7.5px]">
+    <div class="border-r border-black flex items-center px-1">
+     <label class="w-[80px]">
+      LAST NAME:
+     </label>
+     <input aria-label="Last Name" class="border-b border-black flex-1 outline-none text-[7.5px] py-[1px]" type="text"/>
+    </div>
+    <div class="border-r border-black flex items-center px-1">
+     <label class="w-[70px]">
+      FIRST NAME:
+     </label>
+     <input aria-label="First Name" class="border-b border-black flex-1 outline-none text-[7.5px] py-[1px]" type="text"/>
+    </div>
+    <div class="flex items-center px-1">
+     <label class="w-[70px]">
+      MIDDLE NAME:
+     </label>
+     <input aria-label="Middle Name" class="border-b border-black flex-1 outline-none text-[7.5px] py-[1px]" type="text"/>
+    </div>
+   </div>
+   <div class="border border-black border-t-0 grid grid-cols-[1fr_1fr_1fr_1fr_1fr] gap-1 text-[7.5px]">
+    <div class="border-r border-black flex items-center px-1">
+     <label class="w-[90px]">
+      LRN:
+     </label>
+     <input aria-label="LRN" class="border-b border-black flex-1 outline-none text-[7.5px] py-[1px]" type="text"/>
+    </div>
+    <div class="border-r border-black flex items-center px-1">
+     <label class="w-[110px]">
+      Date of Birth (MM/DD/YYYY):
+     </label>
+     <input aria-label="Date of Birth" class="border-b border-black flex-1 outline-none text-[7.5px] py-[1px]" type="text"/>
+    </div>
+    <div class="border-r border-black flex items-center px-1">
+     <label class="w-[30px]">
+      Sex:
+     </label>
+     <input aria-label="Sex" class="border-b border-black w-[20px] outline-none text-[7.5px] py-[1px]" type="text"/>
+    </div>
+    <div class="border-r border-black flex items-center px-1">
+     <label class="w-[110px]">
+      Date of SHS Admission (MM/DD/YYYY):
+     </label>
+     <input aria-label="Date of SHS Admission" class="border-b border-black flex-1 outline-none text-[7.5px] py-[1px]" type="text"/>
+    </div>
+    <div>
+    </div>
+   </div>
+   <!-- Eligibility for SHS Enrollment -->
+   <div class="text-[7.5px] font-semibold bg-gray-300 text-center border border-black py-[1px] mt-1">
+    ELIGIBILITY FOR SHS ENROLMENT
+   </div>
+   <div class="border border-black border-t-0 p-1 text-[7.5px] space-y-1">
+    <div class="flex flex-wrap gap-x-2 gap-y-1 items-center">
+     <label class="inline-flex items-center space-x-1">
+      <input class="w-3 h-3" type="checkbox"/>
+      <span>
+       High School Completer*
+      </span>
+     </label>
+     <label class="inline-flex items-center space-x-1">
+      <input class="w-3 h-3" type="checkbox"/>
+      <span>
+       Gen. Ave:
+      </span>
+     </label>
+     <input aria-label="Gen. Ave" class="border-b border-black w-[40px] text-center outline-none text-[7.5px]" type="text"/>
+     <label class="inline-flex items-center space-x-1">
+      <input class="w-3 h-3" type="checkbox"/>
+      <span>
+       Junior High School Completer
+      </span>
+     </label>
+     <label class="inline-flex items-center space-x-1">
+      <input class="w-3 h-3" type="checkbox"/>
+      <span>
+       Gen. Ave:
+      </span>
+     </label>
+     <input aria-label="Gen. Ave Junior High" class="border-b border-black w-[40px] text-center outline-none text-[7.5px]" type="text"/>
+    </div>
+    <div class="flex flex-wrap gap-x-2 gap-y-1 items-center">
+     <label class="inline-flex items-center space-x-1">
+      <input class="w-3 h-3" type="checkbox"/>
+      <span>
+       Date of Graduation/Completion (MM/DD/YYYY):
+      </span>
+     </label>
+     <input aria-label="Date of Graduation/Completion" class="border-b border-black w-[90px] text-center outline-none text-[7.5px]" type="text"/>
+     <label class="inline-flex items-center space-x-1">
+      <input class="w-3 h-3" type="checkbox"/>
+      <span>
+       Name of School:
+      </span>
+     </label>
+     <input aria-label="Name of School" class="border-b border-black flex-1 outline-none text-[7.5px]" type="text"/>
+     <label class="inline-flex items-center space-x-1">
+      <span>
+       School Address:
+      </span>
+     </label>
+     <input aria-label="School Address" class="border-b border-black flex-1 outline-none text-[7.5px]" type="text"/>
+    </div>
+    <div class="flex flex-wrap gap-x-2 gap-y-1 items-center">
+     <label class="inline-flex items-center space-x-1">
+      <input class="w-3 h-3" type="checkbox"/>
+      <span>
+       PEPT Passer**
+      </span>
+     </label>
+     <label class="inline-flex items-center space-x-1">
+      <span>
+       Rating:
+      </span>
+     </label>
+     <input aria-label="PEPT Rating" class="border-b border-black w-[40px] text-center outline-none text-[7.5px]" type="text"/>
+     <label class="inline-flex items-center space-x-1">
+      <input class="w-3 h-3" type="checkbox"/>
+      <span>
+       ALS A&amp;E Passer***
+      </span>
+     </label>
+     <label class="inline-flex items-center space-x-1">
+      <span>
+       Rating:
+      </span>
+     </label>
+     <input aria-label="ALS A&amp;E Rating" class="border-b border-black w-[40px] text-center outline-none text-[7.5px]" type="text"/>
+     <label class="inline-flex items-center space-x-1">
+      <input class="w-3 h-3" type="checkbox"/>
+      <span>
+       Others (Pls. Specify):
+      </span>
+     </label>
+     <input aria-label="Others Eligibility" class="border-b border-black flex-1 outline-none text-[7.5px]" type="text"/>
+    </div>
+    <div class="flex flex-wrap gap-x-2 gap-y-1 items-center">
+     <label class="inline-flex items-center space-x-1">
+      <span>
+       Name and Address of Community Learning Center:
+      </span>
+     </label>
+     <input aria-label="Name and Address of Community Learning Center" class="border-b border-black flex-1 outline-none text-[7.5px]" type="text"/>
+    </div>
+    <div class="text-xxxs italic mt-0.5">
+     *High School Completers are students who graduated from secondary school under the old curriculum
+    </div>
+    <div class="text-xxxs italic">
+     **PEPT - Philippine Educational Placement Test for JHS
+    </div>
+    <div class="text-xxxs italic">
+     ***ALS A&amp;E - Alternative Learning System Accreditation and Equivalency Test for JHS
+    </div>
+   </div>
+   <!-- Scholastic Record Table 1 -->
+   <div class="mt-2 text-[7.5px] font-semibold border border-black p-1">
+    <div class="flex justify-between mb-1">
+     <div>
+      <span class="font-bold">
+       SCHOOL:
+      </span>
+      <input aria-label="School" class="border-b border-black w-[220px] outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div>
+      <span class="font-bold">
+       SCHOOL ID:
+      </span>
+      <input aria-label="School ID" class="border-b border-black w-[80px] outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div>
+      <span class="font-bold">
+       GRADE LEVEL:
+      </span>
+      <input aria-label="Grade Level" class="border-b border-black w-[50px] outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div>
+      <span class="font-bold">
+       SY:
+      </span>
+      <input aria-label="School Year" class="border-b border-black w-[50px] outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div>
+      <span class="font-bold">
+       SEM:
+      </span>
+      <input aria-label="Semester" class="border-b border-black w-[50px] outline-none text-[7.5px]" type="text"/>
+     </div>
+    </div>
+    <div class="flex justify-between mb-1">
+     <div>
+      <span class="font-bold">
+       TRACK/STRAND:
+      </span>
+      <input aria-label="Track/Strand" class="border-b border-black w-[220px] outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div>
+      <span class="font-bold">
+       SECTION:
+      </span>
+      <input aria-label="Section" class="border-b border-black w-[100px] outline-none text-[7.5px]" type="text"/>
+     </div>
+    </div>
+    <table class="w-full border-collapse border border-black text-[7.5px]">
+     <thead>
+      <tr>
+       <th class="border border-black px-1 py-[2px] w-[90px] text-center align-top">
+        Indicate if Subject is
+        <br/>
+        CORE, APPLIED, or SPECIALIZED
+       </th>
+       <th class="border border-black px-1 py-[2px] text-center align-top">
+        SUBJECTS
+       </th>
+       <th class="border border-black px-1 py-[2px] w-[30px] text-center align-top">
+        Quarter
+       </th>
+       <th class="border border-black px-1 py-[2px] w-[50px] text-center align-top">
+        SEM FINAL GRADE
+       </th>
+       <th class="border border-black px-1 py-[2px] w-[50px] text-center align-top">
+        ACTION TAKEN
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <!-- 15 rows -->
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px] font-semibold text-right" colspan="4">
+        General Ave. for the Semester:
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+   <!-- Remarks and signatures -->
+   <div class="mt-1 text-[7.5px]">
+    <div class="font-semibold">
+     REMARKS:
+    </div>
+    <div class="flex justify-between mt-1">
+     <div class="w-1/3">
+      <label class="font-semibold">
+       Prepared by:
+      </label>
+      <input aria-label="Prepared by" class="border-b border-black w-full outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div class="w-1/3 text-center">
+      <label class="font-semibold">
+       Certified True and Correct:
+      </label>
+      <input aria-label="Certified True and Correct" class="border-b border-black w-full outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div class="w-1/3 text-right">
+      <label class="font-semibold">
+       Date Checked (MM/DD/YYYY):
+      </label>
+      <input aria-label="Date Checked" class="border-b border-black w-[90px] outline-none text-[7.5px]" type="text"/>
+     </div>
+    </div>
+    <div class="flex justify-between mt-1 text-[7.5px]">
+     <div class="text-center w-1/2 border-t border-black pt-1">
+      Signature of Adviser over Printed Name
+     </div>
+     <div class="text-center w-1/2 border-t border-black pt-1">
+      Signature of Authorized Person over Printed Name, Designation
+     </div>
+    </div>
+   </div>
+   <!-- Remedial Classes Table 1 -->
+   <div class="mt-2 text-[7.5px] font-semibold border border-black p-1">
+    <div class="flex flex-wrap justify-between mb-1 gap-1">
+     <div class="flex items-center space-x-1">
+      <span>
+       REMEDIAL CLASSES
+      </span>
+     </div>
+     <div class="flex items-center space-x-1">
+      <span>
+       Conducted from (MM/DD/YYYY):
+      </span>
+      <input aria-label="Remedial Conducted From" class="border-b border-black w-[90px] text-center outline-none text-[7.5px]" type="text"/>
+      <span>
+       to (MM/DD/YYYY):
+      </span>
+      <input aria-label="Remedial Conducted To" class="border-b border-black w-[90px] text-center outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div class="flex items-center space-x-1">
+      <span>
+       SCHOOL:
+      </span>
+      <input aria-label="Remedial School" class="border-b border-black w-[150px] outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div class="flex items-center space-x-1">
+      <span>
+       SCHOOL ID:
+      </span>
+      <input aria-label="Remedial School ID" class="border-b border-black w-[80px] outline-none text-[7.5px]" type="text"/>
+     </div>
+    </div>
+    <table class="w-full border-collapse border border-black text-[7.5px]">
+     <thead>
+      <tr>
+       <th class="border border-black px-1 py-[2px] w-[90px] text-center align-top">
+        Indicate if Subject is
+        <br/>
+        CORE, APPLIED, or SPECIALIZED
+       </th>
+       <th class="border border-black px-1 py-[2px] text-center align-top">
+        SUBJECTS
+       </th>
+       <th class="border border-black px-1 py-[2px] w-[50px] text-center align-top">
+        SEM FINAL GRADE
+       </th>
+       <th class="border border-black px-1 py-[2px] w-[50px] text-center align-top">
+        REMEDIAL CLASS MARK
+       </th>
+       <th class="border border-black px-1 py-[2px] w-[50px] text-center align-top">
+        RECOMPUTED FINAL GRADE
+       </th>
+       <th class="border border-black px-1 py-[2px] w-[50px] text-center align-top">
+        ACTION TAKEN
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <!-- 5 rows -->
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <div class="flex justify-between mt-1 text-[7.5px]">
+     <div class="w-1/2">
+      <label class="font-semibold">
+       Name of Teacher/Adviser:
+      </label>
+      <input aria-label="Name of Teacher/Adviser" class="border-b border-black w-full outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div class="w-1/2 text-right">
+      <label class="font-semibold">
+       Signature:
+      </label>
+      <input aria-label="Signature" class="border-b border-black w-[150px] outline-none text-[7.5px]" type="text"/>
+     </div>
+    </div>
+   </div>
+   <!-- Scholastic Record Table 2 (same structure as Table 1) -->
+   <div class="mt-4 text-[7.5px] font-semibold border border-black p-1">
+    <div class="flex justify-between mb-1">
+     <div>
+      <span class="font-bold">
+       SCHOOL:
+      </span>
+      <input aria-label="School 2" class="border-b border-black w-[220px] outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div>
+      <span class="font-bold">
+       SCHOOL ID:
+      </span>
+      <input aria-label="School ID 2" class="border-b border-black w-[80px] outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div>
+      <span class="font-bold">
+       GRADE LEVEL:
+      </span>
+      <input aria-label="Grade Level 2" class="border-b border-black w-[50px] outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div>
+      <span class="font-bold">
+       SY:
+      </span>
+      <input aria-label="School Year 2" class="border-b border-black w-[50px] outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div>
+      <span class="font-bold">
+       SEM:
+      </span>
+      <input aria-label="Semester 2" class="border-b border-black w-[50px] outline-none text-[7.5px]" type="text"/>
+     </div>
+    </div>
+    <div class="flex justify-between mb-1">
+     <div>
+      <span class="font-bold">
+       TRACK/STRAND:
+      </span>
+      <input aria-label="Track/Strand 2" class="border-b border-black w-[220px] outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div>
+      <span class="font-bold">
+       SECTION:
+      </span>
+      <input aria-label="Section 2" class="border-b border-black w-[100px] outline-none text-[7.5px]" type="text"/>
+     </div>
+    </div>
+    <table class="w-full border-collapse border border-black text-[7.5px]">
+     <thead>
+      <tr>
+       <th class="border border-black px-1 py-[2px] w-[90px] text-center align-top">
+        Indicate if Subject is
+        <br/>
+        CORE, APPLIED, or SPECIALIZED
+       </th>
+       <th class="border border-black px-1 py-[2px] text-center align-top">
+        SUBJECTS
+       </th>
+       <th class="border border-black px-1 py-[2px] w-[30px] text-center align-top">
+        Quarter
+       </th>
+       <th class="border border-black px-1 py-[2px] w-[50px] text-center align-top">
+        SEM FINAL GRADE
+       </th>
+       <th class="border border-black px-1 py-[2px] w-[50px] text-center align-top">
+        ACTION TAKEN
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <!-- 15 rows -->
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px] font-semibold text-right" colspan="4">
+        General Ave. for the Semester:
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+   <!-- Remarks and signatures 2 -->
+   <div class="mt-1 text-[7.5px]">
+    <div class="font-semibold">
+     REMARKS:
+    </div>
+    <div class="flex justify-between mt-1">
+     <div class="w-1/3">
+      <label class="font-semibold">
+       Prepared by:
+      </label>
+      <input aria-label="Prepared by 2" class="border-b border-black w-full outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div class="w-1/3 text-center">
+      <label class="font-semibold">
+       Certified True and Correct:
+      </label>
+      <input aria-label="Certified True and Correct 2" class="border-b border-black w-full outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div class="w-1/3 text-right">
+      <label class="font-semibold">
+       Date Checked (MM/DD/YYYY):
+      </label>
+      <input aria-label="Date Checked 2" class="border-b border-black w-[90px] outline-none text-[7.5px]" type="text"/>
+     </div>
+    </div>
+    <div class="flex justify-between mt-1 text-[7.5px]">
+     <div class="text-center w-1/2 border-t border-black pt-1">
+      Signature of Adviser over Printed Name
+     </div>
+     <div class="text-center w-1/2 border-t border-black pt-1">
+      Signature of Authorized Person over Printed Name, Designation
+     </div>
+    </div>
+   </div>
+   <!-- Remedial Classes Table 2 -->
+   <div class="mt-2 text-[7.5px] font-semibold border border-black p-1">
+    <div class="flex flex-wrap justify-between mb-1 gap-1">
+     <div class="flex items-center space-x-1">
+      <span>
+       REMEDIAL CLASSES
+      </span>
+     </div>
+     <div class="flex items-center space-x-1">
+      <span>
+       Conducted from (MM/DD/YYYY):
+      </span>
+      <input aria-label="Remedial Conducted From 2" class="border-b border-black w-[90px] text-center outline-none text-[7.5px]" type="text"/>
+      <span>
+       to (MM/DD/YYYY):
+      </span>
+      <input aria-label="Remedial Conducted To 2" class="border-b border-black w-[90px] text-center outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div class="flex items-center space-x-1">
+      <span>
+       SCHOOL:
+      </span>
+      <input aria-label="Remedial School 2" class="border-b border-black w-[150px] outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div class="flex items-center space-x-1">
+      <span>
+       SCHOOL ID:
+      </span>
+      <input aria-label="Remedial School ID 2" class="border-b border-black w-[80px] outline-none text-[7.5px]" type="text"/>
+     </div>
+    </div>
+    <table class="w-full border-collapse border border-black text-[7.5px]">
+     <thead>
+      <tr>
+       <th class="border border-black px-1 py-[2px] w-[90px] text-center align-top">
+        Indicate if Subject is
+        <br/>
+        CORE, APPLIED, or SPECIALIZED
+       </th>
+       <th class="border border-black px-1 py-[2px] text-center align-top">
+        SUBJECTS
+       </th>
+       <th class="border border-black px-1 py-[2px] w-[50px] text-center align-top">
+        SEM FINAL GRADE
+       </th>
+       <th class="border border-black px-1 py-[2px] w-[50px] text-center align-top">
+        REMEDIAL CLASS MARK
+       </th>
+       <th class="border border-black px-1 py-[2px] w-[50px] text-center align-top">
+        RECOMPUTED FINAL GRADE
+       </th>
+       <th class="border border-black px-1 py-[2px] w-[50px] text-center align-top">
+        ACTION TAKEN
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <!-- 5 rows -->
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+      <tr>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+       <td class="border border-black px-1 py-[2px]">
+       </td>
+      </tr>
+     </tbody>
+    </table>
+    <div class="flex justify-between mt-1 text-[7.5px]">
+     <div class="w-1/2">
+      <label class="font-semibold">
+       Name of Teacher/Adviser:
+      </label>
+      <input aria-label="Name of Teacher/Adviser 2" class="border-b border-black w-full outline-none text-[7.5px]" type="text"/>
+     </div>
+     <div class="w-1/2 text-right">
+      <label class="font-semibold">
+       Signature:
+      </label>
+      <input aria-label="Signature 2" class="border-b border-black w-[150px] outline-none text-[7.5px]" type="text"/>
+     </div>
+    </div>
+   </div>
+  </div>
+ </body>
+</html> 
