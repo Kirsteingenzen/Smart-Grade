@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotely Demo - High-Tech Insurance Platform</title>
+    <meta name="description" content="Modern insurance quoting platform demo - Built as alternative to Applied Rater and EZLynx with TurboRater, Momentom AMP, and Gail integrations">
+    <meta name="keywords" content="insurance software, applied rater alternative, ezlynx alternative, independent agents, insurance quoting, turborator integration, high-tech, modern">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="navbar-brand">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 12h3v8h14v-8h3L12 2zm0 2.83L18.17 11H5.83L12 4.83zM7 13h10v5H7v-5z"/>
+                </svg>
+                Quotely
+            </a>
+            <nav class="navbar-links">
+                <a href="features.html">Features</a>
+                <a href="demo-code.html">Demo Code</a>
+                <a href="schedule-demo.html">Schedule Demo</a>
+                <a href="migration-assistance.html">Migration Assistance</a>
+                <a href="start-trial.html">Start Trial</a>
+            </nav>
+            <input type="checkbox" id="mobile-nav-toggle" aria-label="Toggle mobile navigation">
+            <label for="mobile-nav-toggle" class="menu-toggle">&#9776;</label>
+
+            <div class="mobile-nav-overlay"></div>
+            <div class="mobile-nav-content">
+                <label for="mobile-nav-toggle" class="close-button">&times;</label>
+                <a href="index.html">Home</a>
+                <a href="features.html">Features</a>
+                <a href="demo-code.html">Demo Code</a>
+                <a href="schedule-demo.html">Schedule Demo</a>
+                <a href="migration-assistance.html">Migration Assistance</a>
+                <a href="start-trial.html">Start Trial</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 id="hero-title">Quotely Demo Platform</h1>
+            <p>The modern insurance quoting platform built for independent agents who want to escape Applied Rater and EZLynx limitations</p>
+            <div class="cta-group">
+                <a href="demo-code.html" class="cta">View Demo Code</a>
+                <a href="features.html" class="cta secondary">See Features</a>
+                <a href="schedule-demo.html" class="cta">Schedule Live Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why Agents Choose Quotely</h2>
+            <div class="feature-grid">
+                <div class="feature">
+                    <div class="feature-lightning-overlay" style="background-image: url('/placeholder.svg?height=200&width=200');"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L2 12h3v8h14v-8h3L12 2zm0 2.83L18.17 11H5.83L12 4.83zM7 13h10v5H7v-5z"/>
+                    </svg>
+                    <h3>Modern Interface</h3>
+                    <p>Say goodbye to Applied Rater's 1990s interface. Quotely provides a clean, intuitive design that works on any device.</p>
+                    <div class="feature-stat-hidden">99.8% User Satisfaction</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-lightning-overlay" style="background-image: url('/placeholder.svg?height=200&width=200');"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/>
+                    </svg>
+                    <h3>Lightning Fast</h3>
+                    <p>Generate quotes in 30-60 seconds vs 3-5 minutes with EZLynx. Our optimized platform delivers results when you need them.</p>
+                    <div class="feature-stat-hidden">30-60 Second Quoting</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-lightning-overlay" style="background-image: url('/placeholder.svg?height=200&width=200');"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17 7h-4V3h-2v4H7v2h4v4h2v-4h4V7zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-2c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3z"/>
+                    </svg>
+                    <h3>Seamless Integrations</h3>
+                    <p>Built-in connections to TurboRater, Momentom AMP (formerly NowCerts), and Gail. No more switching between systems.</p>
+                    <div class="feature-stat-hidden">10+ Integrations</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-lightning-overlay" style="background-image: url('/placeholder.svg?height=200&width=200');"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                    </svg>
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden fees like EZLynx. What you see is what you pay, with no surprise charges or add-on costs.</p>
+                    <div class="feature-stat-hidden">No Hidden Fees</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-lightning-overlay" style="background-image: url('/placeholder.svg?height=200&width=200');"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17 1.01L7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/>
+                    </svg>
+                    <h3>Mobile Ready</h3>
+                    <p>Quote on the go with our fully responsive mobile interface. Works perfectly on phones and tablets.</p>
+                    <div class="feature-stat-hidden">100% Responsive</div>
+                </div>
+                <div class="feature">
+                    <div class="feature-lightning-overlay" style="background-image: url('/placeholder.svg?height=200&width=200');"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M14.6 10.2L17 7.8l-1.4-1.4-2.4 2.4-2.4-2.4-1.4 1.4 2.4 2.4-2.4 2.4 1.4 1.4 2.4-2.4 2.4 2.4 1.4-1.4zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                    </svg>
+                    <h3>API Access</h3>
+                    <p>Full REST API included at no extra cost. Integrate with any system or build custom workflows.</p>
+                    <div class="feature-stat-hidden">Open API Access</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="comparison">
+        <div class="container">
+            <h2>Platform Comparison</h2>
+            <div class="comparison-tabs">
+                <button class="tab-button active" data-tab="quotely">Quotely</button>
+                <button class="tab-button" data-tab="applied-rater">Applied Rater</button>
+                <button class="tab-button" data-tab="ezlynx">EZLynx</button>
+            </div>
+            <div class="comparison-table-wrapper">
+                <div id="quotely-tab" class="tab-content active">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Quotely</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>User Interface</strong></td>
+                                <td class="winner">✅ Modern &amp; Intuitive</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mobile Support</strong></td>
+                                <td class="winner">✅ Full Featured</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Quote Speed</strong></td>
+                                <td class="winner">✅ 30-60 seconds</td>
+                            </tr>
+                            <tr>
+                                <td><strong>API Access</strong></td>
+                                <td class="winner">✅ Full REST API Included</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Setup Time</strong></td>
+                                <td class="winner">✅ Same Day</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Customer Support</strong></td>
+                                <td class="winner">✅ Chat + Phone + Email</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="applied-rater-tab" class="tab-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Applied Rater</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>User Interface</strong></td>
+                                <td class="text-red">❌ Outdated</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mobile Support</strong></td>
+                                <td class="text-red">❌ Limited</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Quote Speed</strong></td>
+                                <td class="text-yellow">⚠️ 2-4 minutes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>API Access</strong></td>
+                                <td class="text-red">❌ Restricted</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Setup Time</strong></td>
+                                <td class="text-yellow">⚠️ 2-4 weeks</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Customer Support</strong></td>
+                                <td class="text-yellow">⚠️ Ticket-based</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="ezlynx-tab" class="tab-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>EZLynx</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>User Interface</strong></td>
+                                <td class="text-yellow">⚠️ Average</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mobile Support</strong></td>
+                                <td class="text-yellow">⚠️ Basic</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Quote Speed</strong></td>
+                                <td class="text-yellow">⚠️ 3-5 minutes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>API Access</strong></td>
+                                <td class="text-yellow">⚠️ Limited &amp; Expensive</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Setup Time</strong></td>
+                                <td class="text-yellow">⚠️ 3-6 weeks</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Customer Support</strong></td>
+                                <td class="text-yellow">⚠️ Phone only</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>What Our Agents Say</h2>
+            <div class="chat-bubble-container">
+                <div class="chat-bubbles-wrapper">
+                    <div class="chat-bubble">
+                        <p>"Quotely has revolutionized our quoting process! It's incredibly fast and intuitive. Our clients love the speed."</p>
+                        <span class="author">- Jane D., Independent Agent</span>
+                    </div>
+                    <div class="chat-bubble">
+                        <p>"Finally, a modern interface that doesn't feel like it's from the last century. Integrations are seamless!"</p>
+                        <span class="author">- Mark S., Agency Owner</span>
+                    </div>
+                    <div class="chat-bubble">
+                        <p>"The mobile responsiveness is a game-changer. I can quote from anywhere, on any device. Highly recommend!"</p>
+                        <span class="author">- Sarah L., Mobile Agent</span>
+                    </div>
+                    <div class="chat-bubble">
+                        <p>"Transparent pricing and excellent support. Quotely truly understands the needs of independent agents."</p>
+                        <span class="author">- David K., Senior Agent</span>
+                    </div>
+                    <div class="chat-bubble">
+                        <p>"Switching from our old system was a breeze with their migration assistance. Zero downtime, full efficiency."</p>
+                        <span class="author">- Emily R., Operations Manager</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Ready to Modernize Your Agency?</h2>
+            <p>Join thousands of independent agents who've made the switch from legacy platforms</p>
+            <div class="cta-group">
+                <a href="start-trial.html" class="cta">Start Free Trial</a>
+                <a href="migration-assistance.html" class="cta secondary">Migration Assistance</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <a href="index.html" class="footer-brand">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 12h3v8h14v-8h3L12 2zm0 2.83L18.17 11H5.83L12 4.83zM7 13h10v5H7v-5z"/>
+                </svg>
+                Quotely
+            </a>
+            <p>© 2025 Quotely Inc. Built by independent agents, for independent agents.</p>
+            <p>Modern insurance platform - Alternative to Applied Rater, EZLynx</p>
+            <div class="footer-links">
+                <a href="features.html">Features</a>
+                <a href="demo-code.html">Demo Code</a>
+                <a href="schedule-demo.html">Schedule Demo</a>
+                <a href="migration-assistance.html">Migration Assistance</a>
+                <a href="start-trial.html">Start Trial</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="start-trial.html" class="fixed-cta-button">Start Free Trial</a>
+    <canvas id="cursor-trail-canvas"></canvas>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+            const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+            const mobileNavContent = document.querySelector('.mobile-nav-content');
+            const closeButton = document.querySelector('.mobile-nav-content .close-button');
+            const navLinks = document.querySelectorAll('.mobile-nav-content a');
+
+            mobileNavToggle.addEventListener('change', () => {
+                if (mobileNavToggle.checked) {
+                    mobileNavOverlay.style.display = 'block';
+                    setTimeout(() => mobileNavOverlay.style.opacity = '1', 10);
+                    mobileNavContent.style.left = '0';
+                } else {
+                    mobileNavOverlay.style.opacity = '0';
+                    mobileNavContent.style.left = '-300px';
+                    setTimeout(() => mobileNavOverlay.style.display = 'none', 300);
+                }
+            });
+
+            closeButton.addEventListener('click', () => {
+                mobileNavToggle.checked = false;
+                mobileNavOverlay.style.opacity = '0';
+                mobileNavContent.style.left = '-300px';
+                setTimeout(() => mobileNavOverlay.style.display = 'none', 300);
+            });
+
+            mobileNavOverlay.addEventListener('click', () => {
+                mobileNavToggle.checked = false;
+                mobileNavOverlay.style.opacity = '0';
+                mobileNavContent.style.left = '-300px';
+                setTimeout(() => mobileNavOverlay.style.display = 'none', 300);
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileNavToggle.checked = false;
+                    mobileNavOverlay.style.opacity = '0';
+                    mobileNavContent.style.left = '-300px';
+                    setTimeout(() => mobileNavOverlay.style.display = 'none', 300);
+                });
+            });
+
+            // Typewriter Effect
+            const heroTitle = document.getElementById('hero-title');
+            const originalText = heroTitle.textContent;
+            heroTitle.textContent = ''; // Clear text initially
+
+            let charIndex = 0;
+            function typeWriter() {
+                if (charIndex < originalText.length) {
+                    heroTitle.textContent += originalText.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeWriter, 70); // Typing speed
+                } else {
+                    heroTitle.style.borderRight = 'none'; // Remove cursor after typing
+                }
+            }
+            // Start typing after a short delay
+            setTimeout(() => {
+                heroTitle.style.animation = 'typing 3.5s steps(40, end) forwards, blink-caret .75s step-end infinite';
+                typeWriter();
+            }, 500);
+
+            // Scroll-triggered Animation (Intersection Observer)
+            const features = document.querySelectorAll('.feature');
+            const steps = document.querySelectorAll('.step');
+            const benefits = document.querySelectorAll('.benefit');
+
+            const observerOptions = {
+                root: null, // viewport
+                rootMargin: '0px',
+                threshold: 0.2 // 20% of item visible
+            };
+
+            const observerCallback = (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+            features.forEach(feature => observer.observe(feature));
+            steps.forEach(step => observer.observe(step));
+            benefits.forEach(benefit => observer.observe(benefit));
+
+            // Comparison Tabs
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and content
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Add active class to clicked button
+                    button.classList.add('active');
+
+                    // Show corresponding content
+                    const targetTabId = button.dataset.tab + '-tab';
+                    document.getElementById(targetTabId).classList.add('active');
+                });
+            });
+
+            // Testimonials Auto-scroll
+            const chatBubblesWrapper = document.querySelector('.chat-bubbles-wrapper');
+            if (chatBubblesWrapper) {
+                const chatBubbles = document.querySelectorAll('.chat-bubble');
+                let totalHeight = 0;
+                chatBubbles.forEach(bubble => {
+                    totalHeight += bubble.offsetHeight + 25; // Add gap
+                });
+
+                // Clone bubbles to create a seamless loop
+                for (let i = 0; i < chatBubbles.length; i++) {
+                    chatBubblesWrapper.appendChild(chatBubbles[i].cloneNode(true));
+                }
+
+                // Adjust animation duration based on content height
+                const animationDuration = (totalHeight / 50) + 's'; // 50px/sec scroll speed
+                chatBubblesWrapper.style.animationDuration = animationDuration;
+
+                // Adjust keyframes for dynamic height
+                const styleSheet = document.styleSheets[0];
+                let scrollKeyframesRule = null;
+                for (let i = 0; i < styleSheet.cssRules.length; i++) {
+                    if (styleSheet.cssRules[i].name === 'scroll-testimonials') {
+                        scrollKeyframesRule = styleSheet.cssRules[i];
+                        break;
+                    }
+                }
+
+                if (scrollKeyframesRule) {
+                    // Calculate the translateY value based on the actual content height
+                    const containerHeight = document.querySelector('.chat-bubble-container').offsetHeight;
+                    const translateYValue = `calc(-${totalHeight}px + ${containerHeight}px)`;
+                    // Remove existing 100% rule if it exists
+                    for (let i = 0; i < scrollKeyframesRule.cssRules.length; i++) {
+                        if (scrollKeyframesRule.cssRules[i].keyText === '100%') {
+                            scrollKeyframesRule.deleteRule(i);
+                            break;
+                        }
+                    }
+                    scrollKeyframesRule.appendRule(`100% { transform: translateY(${translateYValue}); }`);
+                }
+            }
+        });
+
+        // Cursor Trail
+        const canvas = document.getElementById('cursor-trail-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const maxParticles = 100;
+        const particleSize = 2;
+        const particleColor = 'rgba(0, 224, 255, 0.7)'; // Accent blue glow
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            particles.push({
+                x: e.clientX,
+                y: e.clientY,
+                size: particleSize,
+                opacity: 1,
+                life: 100 // frames
+            });
+        });
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+
+                p.life--;
+                p.opacity = p.life / 100; // Fade out
+                p.size *= 0.98; // Shrink
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 224, 255, ${p.opacity})`;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = `rgba(0, 224, 255, ${p.opacity * 0.8})`;
+                ctx.fill();
+            }
+
+            // Remove dead particles
+            particles = particles.filter(p => p.life > 0 && p.size > 0.1);
+
+            if (particles.length > maxParticles) {
+                particles.splice(0, particles.length - maxParticles);
+            }
+
+            requestAnimationFrame(animateParticles);
+        }
+
+        animateParticles();
+    </script>
+</body>
+</html>
