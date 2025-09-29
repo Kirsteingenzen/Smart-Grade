@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMARTGRADE - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="dashboard-title">
+                <svg width="32" height="32" viewBox="0 0 80 80" fill="none">
+                    <rect width="80" height="80" rx="16" fill="#2563eb"/>
+                    <path d="M20 30h40v4H20v-4zm0 8h40v4H20v-4zm0 8h32v4H20v-4z" fill="white"/>
+                    <circle cx="56" cy="46" r="8" fill="#10b981"/>
+                    <path d="M52 46l2 2 4-4" stroke="white" stroke-width="2" fill="none"/>
+                </svg>
+                <h1>SMARTGRADE Dashboard</h1>
+            </div>
+            
+            <div class="user-info">
+                <span class="user-name" id="userName">Loading...</span>
+                <button class="logout-btn" id="logoutBtn">Logout</button>
+            </div>
+        </header>
+        
+        <main class="dashboard-content">
+            <!-- Statistics Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Students</h3>
+                    <div class="stat-value" id="totalStudents">0</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Grades Recorded</h3>
+                    <div class="stat-value" id="totalGrades">0</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Academic Achievers</h3>
+                    <div class="stat-value" id="totalAchievers">0</div>
+                </div>
+                
+                <div class="stat-card">
+                    <h3>Active Quarter</h3>
+                    <div class="stat-value">Q2</div>
+                </div>
+            </div>
+            
+            <!-- Main Dashboard Sections -->
+            <div class="dashboard-sections">
+                <!-- Quick Actions -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Quick Actions</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="quick-actions">
+                            <button class="action-btn" onclick="openGradeModal()">
+                                📝 Record New Grade
+                            </button>
+                            <button class="action-btn" onclick="openStudentModal()">
+                                👥 Add New Student
+                            </button>
+                            <button class="action-btn" onclick="generateSF9()">
+                                📊 Generate SF9 Report
+                            </button>
+                            <button class="action-btn" onclick="generateSF10()">
+                                📋 Generate SF10 Report
+                            </button>
+                            <button class="action-btn" onclick="viewAchievers()">
+                                🏆 View Academic Achievers
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Activities -->
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Recent Activities</h2>
+                    </div>
+                    <div class="section-content">
+                        <div class="recent-activities" id="recentActivities">
+                            <p class="text-gray-500">Loading activities...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Grade Computation Section -->
+            <div class="dashboard-section" style="margin-top: 24px;">
+                <div class="section-header">
+                    <h2>Grade Calculator</h2>
+                </div>
+                <div class="section-content">
+                    <div class="grade-calculator">
+                        <div class="calculator-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="writtenWork">Written Work (30%)</label>
+                                    <input type="number" id="writtenWork" min="0" max="100" step="0.01" placeholder="0.00">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="performanceTask">Performance Task (50%)</label>
+                                    <input type="number" id="performanceTask" min="0" max="100" step="0.01" placeholder="0.00">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="quarterlyAssessment">Quarterly Assessment (20%)</label>
+                                    <input type="number" id="quarterlyAssessment" min="0" max="100" step="0.01" placeholder="0.00">
+                                </div>
+                            </div>
+                            
+                            <button class="calculate-btn" onclick="calculateGrade()">Calculate Final Grade</button>
+                            
+                            <div class="grade-result" id="gradeResult" style="display: none;">
+                                <div class="final-grade">
+                                    <span class="grade-label">Final Grade:</span>
+                                    <span class="grade-value" id="finalGradeValue">0.00</span>
+                                </div>
+                                <div class="grade-remarks" id="gradeRemarks">No Remarks</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Modals -->
+    <div id="gradeModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Record New Grade</h3>
+                <button class="modal-close" onclick="closeModal('gradeModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="gradeForm">
+                    <div class="form-group">
+                        <label for="studentSelect">Student</label>
+                        <select id="studentSelect" required>
+                            <option value="">Select Student</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subjectSelect">Subject</label>
+                        <select id="subjectSelect" required>
+                            <option value="">Select Subject</option>
+                            <option value="1">Mathematics</option>
+                            <option value="2">English</option>
+                            <option value="3">Science</option>
+                            <option value="4">Filipino</option>
+                            <option value="5">Social Studies</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="quarterSelect">Quarter</label>
+                        <select id="quarterSelect" required>
+                            <option value="1">1st Quarter</option>
+                            <option value="2" selected>2nd Quarter</option>
+                            <option value="3">3rd Quarter</option>
+                            <option value="4">4th Quarter</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="modalWrittenWork">Written Work</label>
+                            <input type="number" id="modalWrittenWork" min="0" max="100" step="0.01" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="modalPerformanceTask">Performance Task</label>
+                            <input type="number" id="modalPerformanceTask" min="0" max="100" step="0.01" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="modalQuarterlyAssessment">Quarterly Assessment</label>
+                            <input type="number" id="modalQuarterlyAssessment" min="0" max="100" step="0.01" required>
+                        </div>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary" onclick="closeModal('gradeModal')">Cancel</button>
+                        <button type="submit" class="btn-primary">Save Grade</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="studentModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Student</h3>
+                <button class="modal-close" onclick="closeModal('studentModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="studentForm">
+                    <div class="form-group">
+                        <label for="studentId">Student ID</label>
+                        <input type="text" id="studentId" required placeholder="e.g., 2024-001">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gradeLevel">Grade Level</label>
+                            <select id="gradeLevel" required>
+                                <option value="">Select Grade</option>
+                                <option value="7">Grade 7</option>
+                                <option value="8">Grade 8</option>
+                                <option value="9">Grade 9</option>
+                                <option value="10">Grade 10</option>
+                                <option value="11">Grade 11</option>
+                                <option value="12">Grade 12</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="section">Section</label>
+                            <input type="text" id="section" required placeholder="e.g., Einstein">
+                        </div>
+                    </div>
+                    
+                    <div class="modal-actions">
+                        <button type="button" class="btn-secondary" onclick="closeModal('studentModal')">Cancel</button>
+                        <button type="submit" class="btn-primary">Add Student</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
